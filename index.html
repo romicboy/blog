@@ -1,1 +1,98 @@
-romic home
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+        <meta charset="utf-8"/>
+        <meta content="yes" name="apple-mobile-web-app-capable"/>
+        <meta content="yes" name="apple-touch-fullscreen"/>
+        <meta name="format-detection" content="telephone=no,email=no" />
+        <meta name="ML-Config" content="fullscreen=yes,preventMove=no" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+        <title>复利计算器</title>
+        <meta name="keywords" content='复利计算器'>
+        <meta name="description" content='复利计算器'>
+        <link rel="shortcut icon" href="http://v3.bootcss.com/favicon.ico">
+		<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<script type="text/javascript" src="./common/jquery.js"></script>
+		<script type="text/javascript" src="./common/bootstrap.min.js"></script>
+		<script type="text/javascript" src="./js/options.js"></script>
+        <style type="text/css">
+		body {padding-top: 70px;}
+		</style>
+    </head>
+    <body style="zoom:1;">
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+		  <div class="container">
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="#">Calculator</a>
+		    </div>
+		    <div class="navbar-collapse collapse">
+		      <ul class="nav navbar-nav">
+		        <li class="active"><a href="#">复利计算器</a></li>
+		        <li class="hide"><a href="#about">About</a></li>
+		        <li class="dropdown hide">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+		          <ul class="dropdown-menu">
+		            <li><a href="#">Action</a></li>
+		            <li><a href="#">Another action</a></li>
+		            <li><a href="#">Something else here</a></li>
+		            <li role="separator" class="divider"></li>
+		            <li class="dropdown-header">Nav header</li>
+		            <li><a href="#">Separated link</a></li>
+		            <li><a href="#">One more separated link</a></li>
+		          </ul>
+		        </li>
+		      </ul>
+		    </div><!--/.nav-collapse -->
+		  </div>
+		</nav>
+
+		<div class="container">
+		  	<div class="col-sm-4">
+		  		<div class="panel panel-primary">
+		            <div class="panel-heading">
+		              <h3 class="panel-title">复利计算器</h3>
+		            </div>
+		            <div class="panel-body">
+						<form action="">
+						<div class="form-group">
+		            		<label for="exampleInputEmail1">计算项目</label>
+							<div class="radio">
+								<label><input type="radio" name="type" value="1" checked="checked">本金</label>
+								<label><input type="radio" name="type" value="2">复利</label>
+							</div>
+		            	</div>
+		            	<div class="form-group">
+		            		<label for="exampleInputEmail1">存入本金</label>
+							<input type="text" name="present" class="form-control" placeholder="存入本金">
+		            	</div>
+		            	<div class="form-group">
+		            		<label for="exampleInputEmail1">年利率比（%）</label>
+							<input type="text" name="yield" class="form-control" placeholder="年利率比（%）">
+		            	</div>
+		            	<div class="form-group">
+		            		<label for="exampleInputEmail1">存入年限</label>
+							<input type="text" name="year" class="form-control" placeholder="存入年限">
+		            	</div>
+		            	<div class="form-group">
+		            		<label for="exampleInputEmail1">复利终值</label>
+							<input type="text" name="future" class="form-control" placeholder="复利终值" disabled>
+		            	</div>
+		            	<div class="form-group">
+							<input class="btn btn-primary" type="submit" value="提交">
+							<input class="btn btn-default" type="reset" value="重置">
+						</div>
+						</form>
+		            </div>
+				</div>
+		  	</div>
+		</div>
+
+    </body>
+</html>
