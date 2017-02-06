@@ -5,11 +5,24 @@
 	var Options = function() {
 
 		this.bindEvent = function() {
-			var money = 10000;		// 每次投入金额
-			var price = 20;			// 当前价格
-			var length = 6;			// 循环次数
-			var unsteady = 0.1;		// 浮动比例
-			this.curve(money, price, length, unsteady);
+			$this = this;
+			// var money = 10000;		// 每次投入金额
+			// var price = 20;			// 当前价格
+			// var length = 6;			// 循环次数
+			// var unsteady = 0.1;		// 浮动比例
+			// this.curve(money, price, length, unsteady);
+			$("input[type='submit']").click(function(){
+				var money = parseInt($("input[name='money']").val());
+				var price = parseInt($("input[name='price']").val());
+				var length = parseInt($("input[name='length']").val());
+				var unsteady = parseInt($("input[name='unsteady']").val())/100;
+				$this.log(money);
+				$this.log(price);
+				$this.log(length);
+				$this.log(unsteady);
+				$this.curve(money, price, length, unsteady);
+				return false;
+			});
 		};
 
 		/**
@@ -19,6 +32,8 @@
 		 * unsteady // 浮动比例
 		 */
 		this.curve = function(money, price, length, unsteady){
+			$('.J-result').removeClass('hide');
+			$('.J-result-item').remove();
 			var number = 0;			// 每次能买的股票数
 			var conut = 0;			// 拥有股票数
 			var market = 0;			// 当前市值
@@ -27,13 +42,13 @@
 			var html = null;
 			number = Math.round(money / price);
 			conut = number;
-			market = conut*price;
+			market = conut * price;
 			invest = money;
 			earnings = 1;
 			this.log('unsteady:1.0, price:'+price+', number:'+number+', conut:'+conut+', market:'+market+', invest:'+invest+', earnings:'+earnings);
-			html = this.getHtml(unsteady, price, number, conut, market, invest, earnings);
+			html = this.getHtml(unsteady*100+'%', price, number, conut, market, invest, parseFloat(earnings*100).toFixed(2)+'%');
 			this.appendHtml(html);
-			for (var i = 0; i < length; i++) {
+			for (var i = 0; i < length-1; i++) {
 				if (i > ((length - 2) / 2)) {
 					price = Math.round(price * (1+unsteady));
 				} else {
@@ -45,7 +60,7 @@
 				invest = money*(i+2);
 				earnings = parseFloat(market / invest);
 				this.log('unsteady:'+unsteady+', price:'+price+', number:'+number+', conut:'+conut+', market:'+market+', invest:'+invest+', earnings:'+earnings);
-				html = this.getHtml(unsteady, price, number, conut, market, invest, earnings);
+				html = this.getHtml(unsteady*100+'%', price, number, conut, market, invest, parseFloat(earnings*100).toFixed(2)+'%');
 				this.appendHtml(html);
 			}
 		};
@@ -55,7 +70,7 @@
 		};
 
 		this.getHtml = function(unsteady, price, number, conut, market, invest, earnings){
-			var html = '<tr><td>'+unsteady+'</td><td>'+price+'</td><td>'+number+'</td><td>'+conut+'</td><td>'+market+'</td><td>'+invest+'</td><td>'+earnings+'</td></tr>';
+			var html = '<tr class="J-result-item"><td>'+unsteady+'</td><td>'+price+'</td><td>'+number+'</td><td>'+conut+'</td><td>'+market+'</td><td>'+invest+'</td><td>'+earnings+'</td></tr>';
 			return html;
 		};
 
