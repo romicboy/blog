@@ -7,20 +7,18 @@
 		this.bindEvent = function() {
 			$this = this;
 			// var money = 10000;		// 每次投入金额
-			// var price = 20;			// 当前价格
-			// var length = 6;			// 循环次数
-			// var unsteady = 0.1;		// 浮动比例
+			// var price = 11;			// 当前价格
+			// var length = 10;			// 循环次数
+			// var unsteady = 0.04;		// 浮动比例
 			// this.curve(money, price, length, unsteady);
 			$("input[type='submit']").click(function(){
 				var money = parseInt($("input[name='money']").val());
 				var price = parseInt($("input[name='price']").val());
 				var length = parseInt($("input[name='length']").val());
 				var unsteady = parseInt($("input[name='unsteady']").val())/100;
-				$this.log(money);
-				$this.log(price);
-				$this.log(length);
-				$this.log(unsteady);
-				$this.curve(money, price, length, unsteady);
+				if (money && price && length && unsteady) {
+					$this.curve(money, price, length, unsteady);
+				};
 				return false;
 			});
 		};
@@ -45,14 +43,16 @@
 			market = conut * price;
 			invest = money;
 			earnings = 1;
-			this.log('unsteady:1.0, price:'+price+', number:'+number+', conut:'+conut+', market:'+market+', invest:'+invest+', earnings:'+earnings);
-			html = this.getHtml(unsteady*100+'%', price, number, conut, market, invest, parseFloat(earnings*100).toFixed(2)+'%');
+			this.log('unsteady:0.00, price:'+price+', number:'+number+', conut:'+conut+', market:'+market+', invest:'+invest+', earnings:'+earnings);
+			html = this.getHtml(unsteady*100+'%', price, number, conut, market, invest, 0+'%');
 			this.appendHtml(html);
 			for (var i = 0; i < length-1; i++) {
 				if (i > ((length - 2) / 2)) {
-					price = Math.round(price * (1+unsteady));
+					// price = Math.round(price * (1+unsteady));
+					price = parseFloat(price * (1+unsteady)).toFixed(2);
 				} else {
-					price = Math.round(price * (1-unsteady));
+					// price = Math.round(price * (1+unsteady));
+					price = parseFloat(price * (1-unsteady)).toFixed(2);
 				}
 				number = Math.round(money / price);
 				conut += number;
@@ -60,7 +60,7 @@
 				invest = money*(i+2);
 				earnings = parseFloat(market / invest);
 				this.log('unsteady:'+unsteady+', price:'+price+', number:'+number+', conut:'+conut+', market:'+market+', invest:'+invest+', earnings:'+earnings);
-				html = this.getHtml(unsteady*100+'%', price, number, conut, market, invest, parseFloat(earnings*100).toFixed(2)+'%');
+				html = this.getHtml(unsteady*100+'%', price, number, conut, parseFloat(market).toFixed(2), invest, parseFloat(earnings*100-100).toFixed(2)+'%');
 				this.appendHtml(html);
 			}
 		};
