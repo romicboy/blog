@@ -34,17 +34,18 @@
 			var count = 0;			//总金额
 			var invest = 0;			// 投入
 			var earnings = 0; 		// 收益
+			var profit = unsteady / 12; //月利率
+			var earnings_percent = 0;
 			var html = null;
 			for (var i = 0; i < length; i++) {
 				count += money;
-				earnings = count * unsteady;
-				count += count * unsteady;
+				earnings = count * profit * (i+1);
+				count += count * profit * (i+1);
 				invest = invest + money;	
-
-				this.log('unsteady:'+unsteady+', count:'+count+', invest:'+invest+', earnings:'+earnings);
-				html = this.getHtml(unsteady*100+'%', count, invest, earnings);
+				earnings_percent = parseFloat((parseFloat(count).toFixed(2) - invest) / invest).toFixed(4);
+				this.log('unsteady:'+profit+', count:'+count+', invest:'+invest+', earnings:'+earnings+', earnings_percent'+earnings_percent);
+				html = this.getHtml(unsteady*100+'%', parseFloat(count).toFixed(2), invest, parseFloat(earnings).toFixed(2), earnings_percent);
 				this.appendHtml(html);
-
 
 			}
 		};
@@ -53,8 +54,8 @@
 			$('table').append(html);
 		};
 
-		this.getHtml = function(unsteady, count, invest, earnings){
-			var html = '<tr class="J-result-item"><td>'+unsteady+'</td><td>'+count+'</td><td>'+invest+'</td><td>'+earnings+'</td></tr>';
+		this.getHtml = function(unsteady, count, invest, earnings, earnings_percent){
+			var html = '<tr class="J-result-item"><td>'+unsteady+'</td><td>'+count+'</td><td>'+invest+'</td><td>'+earnings+'</td><td>'+earnings_percent+'</td></tr>';
 			return html;
 		};
 
