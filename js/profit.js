@@ -44,7 +44,7 @@
 				invest = invest + money;	
 				earnings_percent = parseFloat((parseFloat(count).toFixed(2) - invest) / invest).toFixed(4);
 				this.log('unsteady:'+profit+', count:'+count+', invest:'+invest+', earnings:'+earnings+', earnings_percent'+earnings_percent);
-				html = this.getHtml(unsteady*100+'%', parseFloat(count).toFixed(2), invest, parseFloat(earnings).toFixed(2), earnings_percent);
+				html = this.getHtml(unsteady*100+'%', parseFloat(count).toFixed(2), invest, parseFloat(earnings).toFixed(2), parseFloat(earnings_percent*100).toFixed(2)+'%');
 				this.appendHtml(html);
 
 			}
