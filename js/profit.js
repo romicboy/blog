@@ -7,10 +7,9 @@
 		this.bindEvent = function() {
 			$this = this;
 			// var money = 10000;		// 每次投入金额
-			// var price = 11;			// 当前价格
-			// var length = 10;			// 循环次数
-			// var unsteady = 0.04;		// 浮动比例
-			// this.curve(money, price, length, unsteady);
+			// var length = 12;		// 循环次数
+			// var unsteady = 0.1;		// 浮动比例
+			// this.curve(money, length, unsteady);
 			$("input[type='submit']").click(function(){
 				var money = parseInt($("input[name='money']").val());
 				var length = parseInt($("input[name='length']").val());
@@ -31,22 +30,18 @@
 		this.curve = function(money, length, unsteady){
 			$('.J-result').removeClass('hide');
 			$('.J-result-item').remove();
-			var count = 0;			//总金额
-			var invest = 0;			// 投入
-			var earnings = 0; 		// 收益
+			var interest = 0			// 上月结息
 			var profit = unsteady / 12; //月利率
-			var earnings_percent = 0;
+			var balance = 0;			// 余额
+			var amount = 0;				// 总计
 			var html = null;
 			for (var i = 0; i < length; i++) {
-				count += money;
-				earnings = count * profit * (i+1);
-				count += count * profit * (i+1);
-				invest = invest + money;	
-				earnings_percent = parseFloat((parseFloat(count).toFixed(2) - invest) / invest).toFixed(4);
-				this.log('unsteady:'+profit+', count:'+count+', invest:'+invest+', earnings:'+earnings+', earnings_percent'+earnings_percent);
-				html = this.getHtml(unsteady*100+'%', parseFloat(count).toFixed(2), invest, parseFloat(earnings).toFixed(2), parseFloat(earnings_percent*100).toFixed(2)+'%');
+				interest = balance * profit;
+				amount = balance + money + interest;
+				this.log('索引:'+(i+1)+', 余额:'+balance+', 存入:'+money+', 上月结息:'+ interest+ ', 总计:'+amount);
+				html = this.getHtml((i+1),parseFloat(balance).toFixed(2), money, parseFloat(interest).toFixed(2), parseFloat(amount).toFixed(2));
 				this.appendHtml(html);
-
+				balance += money + interest;
 			}
 		};
 
@@ -54,8 +49,8 @@
 			$('table').append(html);
 		};
 
-		this.getHtml = function(unsteady, count, invest, earnings, earnings_percent){
-			var html = '<tr class="J-result-item"><td>'+unsteady+'</td><td>'+count+'</td><td>'+invest+'</td><td>'+earnings+'</td><td>'+earnings_percent+'</td></tr>';
+		this.getHtml = function(index, balance, money, interest, amount){
+			var html = '<tr class="J-result-item"><td>'+index+'</td><td>'+balance+'</td><td>'+money+'</td><td>'+interest+'</td><td>'+amount+'</td></tr>';
 			return html;
 		};
 
