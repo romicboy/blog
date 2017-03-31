@@ -35,8 +35,8 @@
 		    <div class="navbar-collapse collapse">
 		      <ul class="nav navbar-nav">
 		        <li><a href="index.html">复利计算器</a></li>
-  		        <li><a href="smile.html">定投计算器</a></li>
   		        <li class="active"><a href="profit.html">工资计算器</a></li>
+  		        <li><a href="smile.html">定投计算器</a></li>
 		        <li class="hide"><a href="#about">About</a></li>
 		        <li class="dropdown hide">
 		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -63,13 +63,6 @@
 		            </div>
 		            <div class="panel-body">
 						<form action="">
-						<!-- <div class="form-group hide">
-		            		<label for="exampleInputEmail1">计算项目</label>
-							<div class="radio">
-								<label><input type="radio" name="type" value="1" checked="checked">本金</label>
-								<label><input type="radio" name="type" value="2">复利</label>
-							</div>
-		            	</div> -->
 		            	<div class="form-group">
 		            		<label for="exampleInputEmail1">每月投入资金</label>
 							<input type="text" name="money" class="form-control" placeholder="每月投入资金">
@@ -78,14 +71,20 @@
 		            		<label for="exampleInputEmail1">存放几月</label>
 							<input type="text" name="length" class="form-control" placeholder="存放几月">
 		            	</div>
-		            	<!-- <div class="form-group">
-		            		<label for="exampleInputEmail1">循环次数</label>
-							<input type="text" name="length" class="form-control" placeholder="循环次数">
-		            	</div> -->
 		            	<div class="form-group">
-		            		<label for="exampleInputEmail1">
-		            			年利率</label>
+		            		<label for="exampleInputEmail1">年利率</label>
 							<input type="text" name="unsteady" class="form-control" placeholder="年利率">
+		            	</div>
+						<div class="form-group">
+		            		<label for="exampleInputEmail1">明细</label>
+							<div class="radio">
+								<label><input type="radio" name="show_detail" value="1" checked="checked">不显示</label>
+								<label><input type="radio" name="show_detail" value="2">显示</label>
+							</div>
+		            	</div>
+						<div class="form-group">
+		            		<label for="exampleInputEmail1">最终结果</label>
+							<textarea class="form-control" name="future" disabled rows="5"></textarea>
 		            	</div>
 		            	<div class="form-group">
 							<input class="btn btn-primary" type="submit" value="提交">
@@ -108,6 +107,7 @@
 								<td>余额</td>
 								<td>存入</td>
 								<td>上月结息</td>
+								<td>投入</td>
 								<td>总计</td>
 							</tr>
 						</table>

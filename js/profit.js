@@ -1,5 +1,18 @@
 (function() {
 
+	Number.prototype.formatMoney = function (places, symbol, thousand, decimal) {
+        places = !isNaN(places = Math.abs(places)) ? places : 2;
+        symbol = symbol !== undefined ? symbol : "¥";
+        thousand = thousand || ",";
+        decimal = decimal || ".";
+        var number = this,
+            negative = number < 0 ? "-" : "",
+            i = parseInt(number = Math.abs(+number || 0).toFixed(places), 10) + "",
+            j = (j = i.length) > 3 ? j % 3 : 0;
+        return symbol + negative + (j ? i.substr(0, j) + thousand : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + thousand) + (places ? decimal + Math.abs(number - i).toFixed(places).slice(2) : "");
+    };
+
+
 	var $this;
 
 	var Options = function() {
@@ -28,29 +41,47 @@
 		 * unsteady // 浮动比例
 		 */
 		this.curve = function(money, length, unsteady){
-			$('.J-result').removeClass('hide');
 			$('.J-result-item').remove();
 			var interest = 0			// 上月结息
 			var profit = unsteady / 12; //月利率
 			var balance = 0;			// 余额
 			var amount = 0;				// 总计
+			var invest = 0;				// 投入
 			var html = null;
 			for (var i = 0; i < length; i++) {
+				invest += money;
 				interest = balance * profit;
 				amount = balance + money + interest;
-				this.log('索引:'+(i+1)+', 余额:'+balance+', 存入:'+money+', 上月结息:'+ interest+ ', 总计:'+amount);
-				html = this.getHtml((i+1),parseFloat(balance).toFixed(2), money, parseFloat(interest).toFixed(2), parseFloat(amount).toFixed(2));
+				this.log('索引:'+(i+1)+', 余额:'+balance+', 存入:'+money+', 上月结息:'+ interest+ ', 投入:'+invest+ ', 总计:'+amount);
+				html = this.getHtml((i+1),parseFloat(balance).toFixed(2), money, parseFloat(interest).toFixed(2), invest, parseFloat(amount).toFixed(2));
 				this.appendHtml(html);
 				balance += money + interest;
 			}
+			var earnings = ((amount-invest)/invest)*100;
+			this.setFuture("( "+amount.formatMoney(2)+" - "+invest.formatMoney(2)+" ) / "+invest.formatMoney(2)+" \n= "+parseFloat(earnings).toFixed(2)+'%');
+			var show_detail = parseInt($("input[name='show_detail']:checked").val());
+			if (show_detail == 2) this.showDetail();
+			else this.hideDetail();
+		};
+
+		this.showDetail = function() {
+			$('.J-result').removeClass('hide');
+		};
+
+		this.hideDetail = function() {
+			$('.J-result').addClass('hide');
+		};
+
+		this.setFuture = function(future){
+			$("[name='future']").val(future);
 		};
 
 		this.appendHtml = function(html){
 			$('table').append(html);
 		};
 
-		this.getHtml = function(index, balance, money, interest, amount){
-			var html = '<tr class="J-result-item"><td>'+index+'</td><td>'+balance+'</td><td>'+money+'</td><td>'+interest+'</td><td>'+amount+'</td></tr>';
+		this.getHtml = function(index, balance, money, interest, invest, amount){
+			var html = '<tr class="J-result-item"><td>'+index+'</td><td>'+balance+'</td><td>'+money+'</td><td>'+interest+'</td><td>'+invest+'</td><td>'+amount+'</td></tr>';
 			return html;
 		};
 
@@ -62,7 +93,7 @@
 
 		this.log = function(info) {
 			console.log(info);
-		}
+		};
 	};
 
 	$(function() {
