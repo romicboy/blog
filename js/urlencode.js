@@ -6,10 +6,13 @@
 
 		this.bindEvent = function() {
 			$this = this;
-			$("input[type='submit']").click(function(){
-				var str = $("input[name='str']").val();
-				$("input[name='result']").val(md5(str));
-				return false;
+			$("input[name='encode']").click(function(){
+				var string = $("[name='string']").val();
+				$("[name='result']").val(encodeURIComponent(string));
+			});
+			$("input[name='decode']").click(function(){
+				var string = $("[name='result']").val();
+				$("[name='string']").val(decodeURIComponent(string));
 			});
 		};
 

@@ -8,14 +8,15 @@
         <meta name="ML-Config" content="fullscreen=yes,preventMove=no" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1,maximum-scale=1,user-scalable=no"/>
-        <title>定投计算器</title>
-        <meta name="keywords" content='定投计算器'>
-        <meta name="description" content='定投计算器'>
-        <link rel="shortcut icon" href="http://v3.bootcss.com/favicon.ico">
-		<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <title>URL编码/解码</title>
+        <meta name="keywords" content='URL编码/解码'>
+        <meta name="description" content='URL编码/解码'>
+        <link rel="shortcut icon" href="//v3.bootcss.com/favicon.ico">
+		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<script type="text/javascript" src="./common/jquery.js"></script>
 		<script type="text/javascript" src="./common/bootstrap.min.js"></script>
-		<script type="text/javascript" src="./js/smile.js"></script>
+		<script src="//cdn.bootcss.com/blueimp-md5/1.1.0/js/md5.min.js"></script>
+		<script type="text/javascript" src="./js/urlencode.js"></script>
         <style type="text/css">
 		body {padding-top: 70px;}
 		.table {margin-bottom:0;}
@@ -37,9 +38,9 @@
 		      <ul class="nav navbar-nav">
 		        <li><a href="index.html">复利计算器</a></li>
   		        <li><a href="profit.html">工资计算器</a></li>
-  		        <li class="active"><a href="smile.html">定投计算器</a></li>
+  		        <li><a href="smile.html">定投计算器</a></li>
   		        <li><a href="md5.html">MD5加密</a></li>
-  		        <li><a href="urlencode.html">URL编码/解码</a></li>
+  		        <li class="active"><a href="urlencode.html">URL编码/解码</a></li>
 		        <li class="hide"><a href="#about">About</a></li>
 		        <li class="dropdown hide">
 		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -62,62 +63,28 @@
 		  	<div class="col-sm-4">
 		  		<div class="panel panel-primary">
 		            <div class="panel-heading">
-		              <h3 class="panel-title">定投计算器</h3>
+		              <h3 class="panel-title">URL编码/解码</h3>
 		            </div>
 		            <div class="panel-body">
 						<form action="">
-						<div class="form-group hide">
-		            		<label for="exampleInputEmail1">计算项目</label>
-							<div class="radio">
-								<label><input type="radio" name="type" value="1" checked="checked">本金</label>
-								<label><input type="radio" name="type" value="2">复利</label>
-							</div>
+						<div class="form-group">
+		            		<label for="string">字符串</label>
+							<textarea class="form-control" name="string" rows="5"></textarea>
 		            	</div>
 		            	<div class="form-group">
-		            		<label for="exampleInputEmail1">每次投入金额</label>
-							<input type="text" name="money" class="form-control" placeholder="每次投入金额">
+		            		<label for="result">结果</label>
+							<textarea class="form-control" name="result" rows="5"></textarea>
 		            	</div>
 		            	<div class="form-group">
-		            		<label for="exampleInputEmail1">当前价格</label>
-							<input type="text" name="price" class="form-control" placeholder="当前价格">
-		            	</div>
-		            	<div class="form-group">
-		            		<label for="exampleInputEmail1">循环次数</label>
-							<input type="text" name="length" class="form-control" placeholder="循环次数">
-		            	</div>
-		            	<div class="form-group">
-		            		<label for="exampleInputEmail1">浮动比例（百分百）</label>
-							<input type="text" name="unsteady" class="form-control" placeholder="浮动比例（百分百）">
-		            	</div>
-		            	<div class="form-group">
-							<input class="btn btn-primary" type="submit" value="提交">
+							<input class="btn btn-primary" name="encode" type="button" value="加密">
+							<input class="btn btn-success" name="decode" type="button" value="解密">
 							<input class="btn btn-default" type="reset" value="重置">
 						</div>
 						</form>
 		            </div>
 				</div>
 		  	</div>
-
-			<div class="col-sm-8 J-result hide">
-				<div class="panel panel-primary">
-					<div class="panel-heading">
-					  <h3 class="panel-title">计算结果</h3>
-					</div>
-					<div class="panel-body">
-						<table class="table table-striped table-bordered table-hover">
-							<tr>
-								<td>浮动</td>
-								<td>当前价格</td>
-								<td>能买股票数</td>
-								<td>拥有股票数</td>
-								<td>当前市值</td>
-								<td>投入</td>
-								<td>收益</td>
-							</tr>
-						</table>
-					</div>
-				</div>
-			</div>
 		</div>
+
     </body>
 </html>
