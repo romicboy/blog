@@ -8,15 +8,15 @@
         <meta name="ML-Config" content="fullscreen=yes,preventMove=no" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1,maximum-scale=1,user-scalable=no"/>
-        <title>MD5加密</title>
-        <meta name="keywords" content='MD5加密'>
-        <meta name="description" content='MD5加密'>
+        <title>Base64加密/Base64解密</title>
+        <meta name="keywords" content='Base64加密/Base64解密'>
+        <meta name="description" content='Base64加密/Base64解密'>
         <link rel="shortcut icon" href="//v3.bootcss.com/favicon.ico">
 		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<script type="text/javascript" src="./common/jquery.js"></script>
 		<script type="text/javascript" src="./common/bootstrap.min.js"></script>
 		<script src="//cdn.bootcss.com/blueimp-md5/1.1.0/js/md5.min.js"></script>
-		<script type="text/javascript" src="./js/md5.js"></script>
+		<script type="text/javascript" src="./js/base64.js"></script>
         <style type="text/css">
 		body {padding-top: 70px;}
 		.table {margin-bottom:0;}
@@ -39,9 +39,9 @@
 		        <li><a href="index.html">复利计算器</a></li>
   		        <li><a href="profit.html">工资计算器</a></li>
   		        <li><a href="smile.html">定投计算器</a></li>
-  		        <li class="active"><a href="md5.html">MD5加密</a></li>
+  		        <li><a href="md5.html">MD5加密</a></li>
   		        <li><a href="urlencode.html">URL编码/解码</a></li>
-  		        <li><a href="base64.html">Base64加密解密</a></li>
+  		        <li class="active"><a href="base64.html">Base64加密解密</a></li>
 		        <li class="hide"><a href="#about">About</a></li>
 		        <li class="dropdown hide">
 		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -64,20 +64,21 @@
 		  	<div class="col-sm-4">
 		  		<div class="panel panel-primary">
 		            <div class="panel-heading">
-		              <h3 class="panel-title">MD5加密</h3>
+		              <h3 class="panel-title">Base64加密解密</h3>
 		            </div>
 		            <div class="panel-body">
 						<form action="">
-		            	<div class="form-group">
-		            		<label for="str">字符串</label>
-							<input type="text" name="str" class="form-control" placeholder="字符串">
+						<div class="form-group">
+		            		<label for="string">字符串</label>
+							<textarea class="form-control" name="string" rows="5"></textarea>
 		            	</div>
 		            	<div class="form-group">
 		            		<label for="result">结果</label>
-							<input type="text" name="result" class="form-control" disabled>
+							<textarea class="form-control" name="result" rows="5"></textarea>
 		            	</div>
 		            	<div class="form-group">
-							<input class="btn btn-primary" type="submit" value="提交">
+							<input class="btn btn-primary" name="encode" type="button" value="加密">
+							<input class="btn btn-success" name="decode" type="button" value="解密">
 							<input class="btn btn-default" type="reset" value="重置">
 						</div>
 						</form>
