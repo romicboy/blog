@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <include name="head">
+        <value name="title">复利计算器</value>
+        <value name="keywords">复利计算器,在线复利计算器</value>
+        <value name="description">复利计算公式是计算前一期利息再生利息的问题，计入本金重复计息，即“利生利”“利滚利”。它的计算方法主要分为2种：一种是一次支付复利计算；另一种是等额多次支付复利计算。它的的特点是：把上期末的本利和作为下一期的 本金，在计算时每一期本金的数额是不同的。主要应用于计算多次等额投资的本利终值和计算多次等额回款值。</value>
+        <value name="script"><script type="text/javascript" src="./js/options.js" /></value>
+    </include>
+    <body style="zoom:1;">
+        <include name="nav">
+            <value name="index">class="active"</value>
+        </include>
+        <div class="container">
+		  	<div class="col-sm-4">
+		  		<div class="panel panel-primary">
+		            <div class="panel-heading">
+		              <h3 class="panel-title">复利计算器</h3>
+		            </div>
+		            <div class="panel-body">
+						<form action="">
+						<div class="form-group">
+		            		<label for="exampleInputEmail1">计算项目</label>
+							<div class="radio">
+								<label><input type="radio" name="type" value="1" checked="checked">本金</label>
+								<label><input type="radio" name="type" value="2">复利</label>
+							</div>
+		            	</div>
+		            	<div class="form-group">
+		            		<label for="exampleInputEmail1">存入本金</label>
+							<input type="text" name="present" class="form-control" placeholder="存入本金">
+		            	</div>
+		            	<div class="form-group">
+		            		<label for="exampleInputEmail1">年利率比（%）</label>
+							<input type="text" name="yield" class="form-control" placeholder="年利率比（%）">
+		            	</div>
+		            	<div class="form-group">
+		            		<label for="exampleInputEmail1">存入年限</label>
+							<input type="text" name="year" class="form-control" placeholder="存入年限">
+		            	</div>
+		            	<div class="form-group">
+		            		<label for="exampleInputEmail1">复利终值</label>
+							<input type="text" name="future" class="form-control" disabled>
+		            	</div>
+		            	<div class="form-group">
+							<input class="btn btn-primary" type="submit" value="提交">
+							<input class="btn btn-default" type="reset" value="重置">
+						</div>
+						</form>
+		            </div>
+				</div>
+		  	</div>
+		</div>
+        <include name="cnzz"></include>
+    </body>
+</html>

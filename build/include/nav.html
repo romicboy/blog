@@ -1,0 +1,33 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+	<div class="navbar-header">
+	  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+	  </button>
+	  <a class="navbar-brand" href="#">Calculator</a>
+	</div>
+	<div class="navbar-collapse collapse">
+	  <ul class="nav navbar-nav">
+		<li {{index}}><a href="index.html">复利计算器</a></li>
+		<li {{md5}}><a href="md5.html">MD5加密</a></li>
+		<li {{time}}><a href="time.html">Unix时间戳</a></li>
+		<li {{urlencode}}><a href="urlencode.html">URL编码/解码</a></li>
+		<li {{base64}}><a href="base64.html">Base64加密解密</a></li>
+		<li {{ssolink}}><a href="ssolink.html">微信SSO连接生成</a></li>
+		<li class="hide"><a href="#about">About</a></li>
+		<li class="dropdown">
+		  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多<span class="caret"></span></a>
+		  <ul class="dropdown-menu">
+				<li><a {{profit}} href="profit.html">工资计算器</a></li>
+				<li><a {{smile}} href="smile.html">定投计算器</a></li>
+			<li role="separator" class="divider hide"></li>
+			<li class="dropdown-header hide">Nav header</li>
+		  </ul>
+		</li>
+	  </ul>
+	</div>
+  </div>
+</nav>

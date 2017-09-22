@@ -1,12 +1,11 @@
-(function() {
+﻿(function() {
 
 	var $this;
-
 	var Options = function() {
 
 		this.bindEvent = function() {
 			$this = this;
-			$("input[type='submit']").click(function(){
+			$("input[name='submit']").click(function(){
 				var str = $("input[name='str']").val();
 				$("input[name='result']").val(md5(str));
 				return false;
