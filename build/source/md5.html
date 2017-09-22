@@ -6,6 +6,9 @@
         <value name="description">MD5加密</value>
         <value name="script">
             <script src="//cdn.bootcss.com/blueimp-md5/1.1.0/js/md5.min.js"></script>
+            <script src="//cdn.bootcss.com/js-sha1/0.4.1/sha1.min.js"></script>
+            <script src="//cdn.bootcss.com/js-sha256/0.6.0/sha256.min.js"></script>
+            <script src="//cdn.bootcss.com/js-sha512/0.4.0/sha512.min.js"></script>
             <script type="text/javascript" src="./js/md5.js" />
         </value>
     </include>
@@ -21,18 +24,33 @@
 		            </div>
 		            <div class="panel-body">
 						<form action="">
-		            	<div class="form-group">
-		            		<label for="str">字符串</label>
-							<input type="text" name="str" class="form-control" placeholder="字符串">
-		            	</div>
-		            	<div class="form-group">
-		            		<label for="result">结果</label>
-							<input type="text" name="result" class="form-control" disabled>
-		            	</div>
-		            	<div class="form-group">
-							<input class="btn btn-primary" name="submit" type="button" value="提交">
-							<input class="btn btn-default" type="reset" value="重置">
-						</div>
+                            <div class="form-group">
+                                <label for="str">加密方式</label>
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                        <span class="value">md5</span>
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                        <li data-value="md5"><a href="#">md5</a></li>
+                                        <li data-value="sha1"><a href="#">sha1</a></li>
+                                        <li data-value="sha256"><a href="#">sha256</a></li>
+                                        <li data-value="sha512"><a href="#">sha512</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+    		            	<div class="form-group">
+    		            		<label for="str">字符串</label>
+    							<input type="text" name="str" class="form-control" placeholder="字符串">
+    		            	</div>
+    		            	<div class="form-group">
+    		            		<label for="result">结果</label>
+    							<textarea class="form-control" disabled="" name="result" rows="5"></textarea>
+    		            	</div>
+    		            	<div class="form-group">
+    							<input class="btn btn-primary" name="submit" type="button" value="提交">
+    							<input class="btn btn-default" type="reset" value="重置">
+    						</div>
 						</form>
 		            </div>
 				</div>
