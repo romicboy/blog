@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <include name="head">
+        <value name="title">日期计算器</value>
+        <value name="keywords">日期计算器</value>
+        <value name="description">日期计算器</value>
+        <value name="script"><script type="text/javascript" src="./js/date.js" /></value>
+    </include>
+    <body style="zoom:1;">
+        <include name="nav">
+            <value name="date">class="active"</value>
+        </include>
+		<div class="container">
+		  	<div class="col-sm-4">
+		  		<div class="panel panel-primary">
+		            <div class="panel-heading">
+		              <h3 class="panel-title">日期计算器</h3>
+		            </div>
+		            <div class="panel-body">
+						<form action="">
+		            	<div class="form-group">
+		            		<label for="date1">时间1</label>
+							<input type="text" name="date1" class="form-control" placeholder="例：2010-10-10">
+		            	</div>
+		            	<div class="form-group">
+		            		<label for="date2">时间2</label>
+							<input type="text" name="date2" class="form-control" placeholder="例：2010-10-10">
+		            	</div>
+                        <div class="form-group">
+		            		<label for="result">相差（天）</label>
+							<input type="text" name="result" class="form-control" disabled>
+		            	</div>
+		            	<div class="form-group">
+							<input class="btn btn-primary" name="submit" type="submit" value="计算">
+							<input class="btn btn-default" type="reset" value="重置">
+						</div>
+						</form>
+		            </div>
+				</div>
+		  	</div>
+		</div>
+		<include name="cnzz"></include>
+	</body>
+</html>
