@@ -2,7 +2,7 @@
 
 	var $this;
 
-	var ssoHost = 'http://g.baidu.com/wxsso?redirect=';
+	var ssoHost = 'http://www.edu-pay.com.cn/index.php/Shop/littlecare/login?ConfigId=338&url=';
 
 	var Options = function() {
 
