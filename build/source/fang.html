@@ -19,9 +19,16 @@
             <div class="panel-body">
                 <form action="">
                     <div class="form-group">
+                        <label>还款方式</label>
+                        <div class="radio">
+                            <label><input type="radio" name="type" value="1" checked="checked">等额本息</label>
+                            <label><input type="radio" name="type" value="2">等额本金</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label>贷款总额</label>
                         <div class="input-group">
-                            <input name="amount" type="text" class="form-control" placeholder="存入本金（万元）">
+                            <input name="amount" type="text" class="form-control">
                             <div class="input-group-addon">万元</div>
                         </div>
                     </div>
@@ -43,6 +50,7 @@
                         <input class="btn btn-primary" type="submit" value="提交">
                         <input class="btn btn-default" type="reset" value="重置">
                     </div>
+
                 </form>
             </div>
         </div>
@@ -86,6 +94,55 @@
                 </div>
 
             </div>
+        </div>
+    </div>
+
+    <div class="col-sm-4" id="result2" style="display: none;" >
+        <div class="panel panel-success">
+
+            <div class="panel-heading">
+                <h3 class="panel-title">等额本金</h3>
+            </div>
+            <div class="panel-body">
+
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <tr>
+                            <th scope="row">贷款总额</th>
+                            <td name="amount"></td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">还款月数</th>
+                            <td name="month"></td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">首月还款	</th>
+                            <td name="first"></td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">支付利息</th>
+                            <td name="interest"></td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">本息合计</th>
+                            <td name="total"></td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-sm-4" id="result2Detail" style="display: none;" >
+        <div class="panel panel-success">
+            <ul class="list-group">
+            </ul>
         </div>
     </div>
 
