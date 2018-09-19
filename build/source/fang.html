@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<include name="head">
+    <value name="title">房贷计算器</value>
+    <value name="keywords">房贷计算器,在线房贷计算器</value>
+    <value name="description">最新2018在线计算房贷、包括房贷计算器、贷款计算器、公积金贷款计算器、房贷计算。</value>
+    <value name="script"><script type="text/javascript" src="./js/fang.js" /></value>
+</include>
+<body style="zoom:1;">
+<include name="nav">
+    <value name="fang">class="active"</value>
+</include>
+<div class="container">
+    <div class="col-sm-4">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">复利计算器</h3>
+            </div>
+            <div class="panel-body">
+                <form action="">
+                    <div class="form-group">
+                        <label>贷款总额</label>
+                        <div class="input-group">
+                            <input name="amount" type="text" class="form-control" placeholder="存入本金（万元）">
+                            <div class="input-group-addon">万元</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>按揭年数</label>
+                        <div class="input-group">
+                            <input name="year" type="text" class="form-control">
+                            <div class="input-group-addon">年</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>贷款利率</label>
+                        <div class="input-group">
+                            <input name="rate" type="text" class="form-control">
+                            <div class="input-group-addon">%</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input class="btn btn-primary" type="submit" value="提交">
+                        <input class="btn btn-default" type="reset" value="重置">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-4" id="result" style="display: none;" >
+        <div class="panel panel-info">
+
+            <div class="panel-heading">
+                <h3 class="panel-title">等额本息</h3>
+            </div>
+            <div class="panel-body">
+
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <tr>
+                            <th scope="row">贷款总额</th>
+                            <td name="amount"></td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">还款月数</th>
+                            <td name="month"></td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">每月还款</th>
+                            <td name="month_refund"></td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">支付利息</th>
+                            <td name="interest"></td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">本息合计</th>
+                            <td name="total"></td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<include name="cnzz"></include>
+</body>
+</html>
