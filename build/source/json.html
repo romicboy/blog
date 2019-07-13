@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<include name="head">
+    <value name="title">房贷计算器</value>
+    <value name="keywords">房贷计算器,在线房贷计算器</value>
+    <value name="description">最新2018在线计算房贷、包括房贷计算器、贷款计算器、公积金贷款计算器、房贷计算。</value>
+    <value name="script"><script type="text/javascript" src="./js/fang.js" /></value>
+</include>
+<body style="zoom:1;">
+<include name="nav">
+    <value name="json">class="active"</value>
+</include>
+<div class="container json-handler">
+    <div class="col-sm-6" id="inputBox">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <span class="pull-left">JSON数据</span>
+                    <div class="btn-group pull-right" role="group">
+                        <button id="submit" type="button" class="btn btn-default btn-sm">格式化</button>
+                    </div>
+                    <div class="clearfix"></div>
+                </h3>
+            </div>
+            <div class="panel-body">
+                <textarea name="jsonString" cols="20" rows="10"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6" id="resultBox">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <span class="pull-left">结果</span>
+                    <div class="btn-group pull-right" role="group">
+                        <button id="hide" type="button" class="btn btn-default btn-sm">隐藏左侧</button>
+                    </div>
+                    <div class="clearfix"></div>
+                </h3>
+            </div>
+            <div class="panel-body">
+                <pre id="result"></pre>
+            </div>
+        </div>
+    </div>
+</div>
+<include name="cnzz"></include>
+</body>
+
+</html>

@@ -3,7 +3,7 @@
  <head>
   <meta charset="utf-8"/>
   <title>
-   打赏 - 房贷计算器
+   房贷计算器
   </title>
   <meta content="房贷计算器,在线房贷计算器" name="keywords"/>
   <meta content="最新2018在线计算房贷、包括房贷计算器、贷款计算器、公积金贷款计算器、房贷计算。" name="description"/>
@@ -57,7 +57,7 @@
         房贷计算器
        </a>
       </li>
-      <li>
+      <li class="active">
        <a href="json.html">
         JSON
        </a>
@@ -120,18 +120,48 @@
     </div>
    </div>
   </nav>
-  <div class="container">
-   <div class="container-content">
-    <p>
-     复利计算器是一个个人小站，站长讨厌满天飞的广告，已尽可能控制广告投放。如果您认可本站的理念，可小额打赏以表支持！
-    </p>
-    <p>
-     转账时请加备注【复利计算器】，以便感谢！
-    </p>
-    <img height="300" src="./img/qrcode.jpg" width="300"/>
-    <p style="padding-top: 10px;">
-     请使用支付宝扫一扫
-    </p>
+  <div class="container json-handler">
+   <div class="col-sm-6" id="inputBox">
+    <div class="panel panel-primary">
+     <div class="panel-heading">
+      <h3 class="panel-title">
+       <span class="pull-left">
+        JSON数据
+       </span>
+       <div class="btn-group pull-right" role="group">
+        <button class="btn btn-default btn-sm" id="submit" type="button">
+         格式化
+        </button>
+       </div>
+       <div class="clearfix">
+       </div>
+      </h3>
+     </div>
+     <div class="panel-body">
+      <textarea cols="20" name="jsonString" rows="10"></textarea>
+     </div>
+    </div>
+   </div>
+   <div class="col-sm-6" id="resultBox">
+    <div class="panel panel-primary">
+     <div class="panel-heading">
+      <h3 class="panel-title">
+       <span class="pull-left">
+        结果
+       </span>
+       <div class="btn-group pull-right" role="group">
+        <button class="btn btn-default btn-sm" id="hide" type="button">
+         隐藏左侧
+        </button>
+       </div>
+       <div class="clearfix">
+       </div>
+      </h3>
+     </div>
+     <div class="panel-body">
+      <pre id="result"></pre>
+     </div>
+    </div>
    </div>
   </div>
   <div class="cnzz">
