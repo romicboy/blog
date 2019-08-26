@@ -45,26 +45,42 @@
 
             this.addRootNode($('#jsonNav'), 'JSON', 'JSON', json);
 
+            this.folderSelect();
             this.folderClick();
         };
 
-        this.folderClick = function(){
-            $('li.folder .row').click(function(){
-                $(this).parent().toggleClass('open');
+
+        //elmBox
+
+        // 折叠节点
+        this.folderSelect = function () {
+            $('li.elmBlock .row .elmBox .elmSpan').click(function (event) {
+                event.stopPropagation();    //  阻止事件冒泡
+                $('.cur').removeClass('cur');
+                $(this).parent().parent().parent().toggleClass('cur');
+            });
+        }
+
+
+        // 折叠节点
+        this.folderClick = function () {
+            $('li.elmBlock').click(function (event) {
+                event.stopPropagation();    //  阻止事件冒泡
+                $(this).toggleClass('open');
             });
         }
 
         /**
          * 获取一个节点对象
          */
-        this.getNode = function(nodePath){
-            return $("[nodepath='"+nodePath+"']");
+        this.getNode = function (nodePath) {
+            return $("[nodepath='" + nodePath + "']");
         }
 
         /**
          * 获取一个节点类型
          */
-        this.getNodeType = function(value){
+        this.getNodeType = function (value) {
             var type = null;
             if (this.isObject(value)) {
                 type = 'object';
@@ -87,7 +103,7 @@
         /**
          * 创建一个节点
          */
-        this.addRootNode = function(node, nodePath, key, value){
+        this.addRootNode = function (node, nodePath, key, value) {
             var type = this.getNodeType(value);
             var str = '<div nodepath="{0}" class="elmBlock open folder {1} root"></div>';
 
@@ -110,7 +126,7 @@
             if (type == 'object') {
                 for (var key in value) {
                     var val = value[key];
-                    var nodePath = parentNodePath+'['+key+']';
+                    var nodePath = parentNodePath + '[' + key + ']';
                     this.addRow(node, nodePath, key, val);
                 }
             }
@@ -118,13 +134,13 @@
             if (type == 'array') {
                 for (var index = 0; index < value.length; index++) {
                     var element = value[index];
-                    var nodePath = parentNodePath+'['+index+']';
+                    var nodePath = parentNodePath + '[' + index + ']';
                     this.addRow(node, nodePath, index, element);
                 }
             }
         }
 
-        this.addRow = function (node, nodePath, key, value){
+        this.addRow = function (node, nodePath, key, value) {
             var type = this.getNodeType(value);
 
             var str = '<li nodepath="{0}" class="elmBlock"></li>';
@@ -134,7 +150,7 @@
             var currentNode = this.getNode(nodePath);
 
             currentNode.addClass(type);
-            if(type == 'object' || type == 'array'){
+            if (type == 'object' || type == 'array') {
                 currentNode.addClass('folder');
             } else {
                 currentNode.addClass('node');
@@ -148,23 +164,24 @@
             var elmListHtml = this.getElmListHtml();
             currentNode.append(elmListHtml);
             var elmListNode = currentNode.find('.elmList');
-            if(type == 'object' || type == 'array'){
+            if (type == 'object' || type == 'array') {
                 this.addRowList(elmListNode, nodePath, value);
             }
         }
 
         this.getRowHtml = function (type, key, value) {
-            var str = '<div class="row"><div class="elmBox"><span class="elmSpan"><span class="elm {0}-key"title="">{1}</span><span class="value ">{2}</span></span></div></div>';
-            if(type != 'string'){
-                value = '';
+            var str = null
+            if (type != 'string') {
+                str = '<div class="row"><div class="elmBox"><span class="elmSpan"><span class="elm {0}-key"title="">{1}</span></div>';
+                return this.StringFormat(str, type, key);
             }
+            str = '<div class="row"><div class="elmBox"><span class="elmSpan"><span class="elm {0}-key"title="">{1}</span><span class="value ">{2}</span></span></div></div>';
             return this.StringFormat(str, type, key, value);
         }
 
-        this.getElmListHtml = function(){
+        this.getElmListHtml = function () {
             return '<ul class="elmList"></li>';
         }
-
 
         this.init = function () {
             $this = this;
