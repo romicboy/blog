@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <include name="head">
+        <value name="title">内部收益率(IRR)计算器</value>
+        <value name="keywords">内部收益率计算器,IRR计算器,在线内部收益率计算器</value>
+        <value name="description">内部收益率（Internal Rate of Return (IRR)），就是资金流入现值总额与资金流出现值总额相等、净现值等于零时的折现率。如果不使用电子计算机，内部收益率要用若干个折现率进行试算，直至找到净现值等于零或接近于零的那个折现率。内部收益率，是一项投资渴望达到的报酬率，是能使投资项目净现值等于零时的折现率。
+它是一项投资渴望达到的报酬率，该指标越大越好。一般情况下，内部收益率大于等于基准收益率时，该项目是可行的。投资项目各年现金流量的折现值之和为项目的净现值，净现值为零时的折现率就是项目的内部收益率。在项目经济评价中，根据分析层次的不同，内部收益率有财务内部收益率（FIRR）和经济内部收益率（EIRR）之分。
+当下，股票、基金、黄金、房产、期货等投资方式已为众多理财者所熟悉和运用。但投资的成效如何，许多人的理解仅仅限于收益的绝对量上，缺乏科学的判断依据。对于他们来说，内部收益率(IRR)指标是个不可或缺的工具。</value>
+        <value name="script">
+          <script type="text/javascript" src="./js/finance.js" />
+          <script type="text/javascript" src="./js/irr.js" />
+        </value>
+    </include>
+    <body style="zoom:1;">
+        <include name="nav">
+            <value name="irr">class="active"</value>
+        </include>
+        <div class="container">
+		  	<div class="col-sm-4">
+		  		<div class="panel panel-primary">
+		            <div class="panel-heading">
+		              <h3 class="panel-title">内部收益率(IRR)计算器</h3>
+		            </div>
+		            <div class="panel-body">
+						<form action="">
+		            	<div class="form-group">
+		            		<label for="exampleInputEmail1">初始投入</label>
+							<input type="text" name="inject" class="form-control" placeholder="初始投入">
+		            	</div>
+		            	<div class="form-group">
+		            		<label for="exampleInputEmail1">每期收入</label>
+							<input type="text" name="income" class="form-control" placeholder="每期收入">
+		            	</div>
+		            	<div class="form-group">
+		            		<label for="exampleInputEmail1">分期次数</label>
+							<input type="text" name="number" class="form-control" placeholder="分期次数">
+		            	</div>
+		            	<div class="form-group">
+		            		<label for="exampleInputEmail1">最终结果</label>
+							<input type="text" name="future" class="form-control" disabled>
+		            	</div>
+		            	<div class="form-group">
+							<input class="btn btn-primary" type="submit" value="提交">
+							<input class="btn btn-default" type="reset" value="重置">
+						</div>
+						</form>
+		            </div>
+				</div>
+		  	</div>
+			<div class="col-sm-4"></div>
+			<div class="col-sm-4 advertising hidden-xs hidden-sm"></div>
+		</div>
+        <include name="cnzz"></include>
+    </body>
+</html>
