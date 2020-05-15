@@ -18,6 +18,8 @@
 
 		this.init = function() {
 			$this = this;
+			$("[name='string']").val(parseInt(new Date().getTime() / 1000));
+			$("input[name='result']").val($this.formatDateTime(new Date().getTime()));
 			this.bindEvent();
 			return this;
 		};
