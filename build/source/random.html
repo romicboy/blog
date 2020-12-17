@@ -9,9 +9,10 @@
             <script src="//cdn.bootcss.com/js-sha1/0.4.1/sha1.min.js"></script>
             <script src="//cdn.bootcss.com/js-sha256/0.6.0/sha256.min.js"></script>
             <script src="//cdn.bootcss.com/js-sha512/0.4.0/sha512.min.js"></script>
-            <script type="text/javascript" src="./js/random.js" />
+            <script type="text/javascript" src="./js/random.js"></script>
+            <style type="text/css">.random_group{position:relative;margin-bottom:20px;padding:10px 0;border-bottom:1px solid #ddd}.random_input{float:right;position:absolute;right:0;bottom:20px}.random_input_number{border:1px solid #ccc;border-radius:4px;padding:0 10px;height:30px;width:100px}</style>
         </value>
-    </include>
+        </include>
     <body style="zoom:1;">
         <include name="nav">
             <value name="random">class="active"</value>
@@ -24,27 +25,27 @@
 		            </div>
 		            <div class="panel-body">
 						<form action="">
-                            <div class="form-group">
+                            <div class="form-group random_group">
     		            		<label for="numbers">数字</label>
-    							<input type="checkbox" name="numbers" class="form-control" placeholder="字符串">
+    							<input type="checkbox" name="numbers" class="random_input" checked />
     		            	</div>
-                            <div class="form-group">
+                            <div class="form-group random_group">
     		            		<label for="lowercase">小写字母</label>
-    							<input type="checkbox" name="lowercase" class="form-control" placeholder="字符串">
+    							<input type="checkbox" name="lowercase" class="random_input" checked />
     		            	</div>
-                            <div class="form-group">
+                            <div class="form-group random_group">
     		            		<label for="uppercase">大写字母</label>
-    							<input type="checkbox" name="uppercase" class="form-control" placeholder="字符串">
+    							<input type="checkbox" name="uppercase" class="random_input" checked />
     		            	</div>
-                            <div class="form-group">
+                            <div class="form-group random_group">
     		            		<label for="symbols">特殊符号</label>
-    							<input type="checkbox" name="symbols" class="form-control" placeholder="字符串">
+    							<input type="checkbox" name="symbols" class="random_input" checked />
     		            	</div>
-                            <div class="form-group">
+                            <div class="form-group random_group">
     		            		<label for="str">密码长度</label>
-    							<input type="number" name="str" class="form-control" placeholder="字符串">
+    							<input type="number" name="number" class="random_input random_input_number" placeholder="请填写密码长度" value="8" />
     		            	</div>
-    		            	<div class="form-group">
+    		            	<div class="form-group random_group">
     		            		<label for="result">结果</label>
     							<textarea class="form-control" disabled="" name="result" rows="5"></textarea>
     		            	</div>

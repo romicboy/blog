@@ -6,35 +6,38 @@
       $this = this;
 
       $("input[name='submit']").click(function () {
-        var numbers = $("input[name='numbers']").attr("checked");
-        var lowercase = $("input[name='lowercase']").attr("checked");
-        var uppercase = $("input[name='uppercase']").attr("checked");
-        var symbols = $("input[name='symbols']").attr("checked");
-        var str = null;
+          
+        var numbers = $("input[name='numbers']:checked").val();
+        var lowercase = $("input[name='lowercase']:checked").val();
+        var uppercase = $("input[name='uppercase']:checked").val();
+        var symbols = $("input[name='symbols']:checked").val();
+        var number = $("input[name='number']").val();
+
+        var str = '';
         if (numbers) str += "1234567890";
-        if (lowercase) str += this.getCharacter("lower");
-        if (uppercase) str += this.getCharacter("upper");
+        if (lowercase) str += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        if (uppercase) str += 'abcdefghijklmnopqrstuvwxyz';
         if (symbols) str += "!@#$%^&*";
+
         var result = $("[name='result']");
-        result.val(str);
+        result.val($this.createUUID(str, number));
         return false;
       });
     };
 
-    this.getCharacter = function (flag) {
-      var character = "";
-      if (flag === "lower") {
-        character = String.fromCharCode(
-          Math.floor(Math.random() * 26) + "a".charCodeAt(0)
-        );
-      }
-      if (flag === "upper") {
-        character = String.fromCharCode(
-          Math.floor(Math.random() * 26) + "A".charCodeAt(0)
-        );
-      }
-      return character;
-    };
+    this.createUUID = function(chars, len) {
+        $this.log(chars);
+        $this.log(len);
+
+        len = len || 28;
+        // var chars = 'ABCDEFGHIJKMNOPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz0123456789';
+        var maxPos = chars.length;
+        var str = '';
+        for (i = 0; i < len; i++) {
+            str += chars.charAt(Math.floor(Math.random() * maxPos));
+        }
+        return str;
+    }
 
     this.init = function () {
       $this = this;
