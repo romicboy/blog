@@ -10,6 +10,18 @@ body {
 	height: 300px
 }
 
+.cps .link{
+	margin: 0 auto;
+}
+
+.cps .pc{
+	display: block;
+}
+
+.cps .h5{
+	display: none;
+}
+
 .container-content {
 	padding-top: 10px;
 	line-height: 20px;
@@ -48,17 +60,6 @@ body {
     margin-bottom: 10px;
 }
 
-@media screen and (max-width: 1200px) {
- 
-	.beian {
-		display: none;
-	}
-
-	.beian_m {
-		display: block;
-	}
-}
-
 .random_group {
 	position: relative;
 	margin-bottom: 18px;
@@ -78,4 +79,23 @@ body {
 	padding: 0 10px;
 	height: 30px;
 	width: 100px
+}
+
+@media screen and (max-width: 1200px) {
+ 
+	.beian {
+		display: none;
+	}
+
+	.beian_m {
+		display: block;
+	}
+
+	.cps .pc{
+		display: none;
+	}
+	
+	.cps .h5{
+		display: block;
+	}
 }
