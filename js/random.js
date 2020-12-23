@@ -15,8 +15,8 @@
 
         var str = '';
         if (numbers) str += "1234567890";
-        if (lowercase) str += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        if (uppercase) str += 'abcdefghijklmnopqrstuvwxyz';
+        if (lowercase) str += 'abcdefghijklmnopqrstuvwxyz';
+        if (uppercase) str += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         if (symbols) str += "!@#$%^&*";
 
         var result = $("[name='result']");
