@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <include name="head">
+        <value name="title">颜色识别器</value>
+        <value name="keywords">颜色识别器</value>
+        <value name="description">颜色识别器</value>
+        <value name="script">
+            <script src="//cdn.staticfile.org/blueimp-md5/1.1.0/js/md5.min.js"></script>
+            <script src="//lib.baomitu.com/js-sha1/0.4.1/sha1.min.js"></script>
+            <script src="//lib.baomitu.com/js-sha256/0.6.0/sha256.min.js"></script>
+            <script src="//lib.baomitu.com/js-sha512/0.4.0/sha512.min.js"></script>
+            <script type="text/javascript" src="./js/color.js"></script>
+        </value>
+        <value name="style">
+            <style type="text/css">
+                #color-result{
+                    background-color: pink;
+                    width: 100%;
+                    height: 150px;
+                    border-radius: 5px;
+                }
+            </style>
+        </value>
+    </include>
+    <body style="zoom:1;">
+        <include name="nav">
+            <value name="md5">class="active"</value>
+        </include>
+		<div class="container">
+		  	<div class="col-sm-4">
+		  		<div class="panel panel-primary">
+		            <div class="panel-heading">
+		              <h3 class="panel-title">颜色识别器</h3>
+		            </div>
+		            <div class="panel-body">
+						<form action="">
+    		            	<div class="form-group">
+    		            		<label for="str">颜色色号</label>
+    							<input type="text" name="color-code" class="form-control" placeholder="字符串">
+    		            	</div>
+    		            	<div class="form-group">
+    		            		<label for="result">结果</label>
+    							<div id="color-result"></div>
+    		            	</div>
+    		            	<div class="form-group">
+    							<input class="btn btn-primary" name="submit" type="button" value="提交">
+    							<input class="btn btn-default" type="reset" value="重置">
+    						</div>
+						</form>
+		            </div>
+				</div>
+		  	</div>
+		</div>
+		<include name="cnzz"></include>
+	</body>
+</html>
